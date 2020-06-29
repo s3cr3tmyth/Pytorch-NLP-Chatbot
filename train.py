@@ -103,3 +103,19 @@ for epoch in range(epochs):
         print('loss',loss.item())
         
 print('Final loss',loss.item())
+
+
+data = {
+    "model_state":model.state_dict(),
+    "input_size": input_size,
+    "hidden_size": hidden_size,
+    "output_size": output_size,
+    "all_words": all_words,
+    "tags": tags
+
+}
+
+FILE = "model_state.pth"
+torch.save(data, FILE)
+
+print('training complete')
